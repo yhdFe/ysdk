@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<div class="main">
+<link rel="stylesheet" href="http://a.tbcdn.cn/apps/pamirsshop/wiki/stylesheets/base-min.css"/>
+<link href="http://a.tbcdn.cn/apps/pamirsshop/wiki/stylesheets/prettify.css" rel="stylesheet" type="text/css"/> 
+<link rel="stylesheet" href="http://a.tbcdn.cn/apps/pamirsshop/wiki/stylesheets/wiki.css"/>
+	<style>
+		.hidden{
+			display:none;
+		}
+		
+		.first-trigger,.first-trigger1{
+			width:200px;
+			height:200px;
+			border:solid 1px red;
+			margin:10px;
+		}
+		
+	</style>
+	<h2 class='ti'>pop - 弹出层1</h2>
+	<div class="first-trigger">我只是个触点而已，把鼠标滑到我身上
+		<div class="J_TWidget hidden" data-widget-type="Popup" data-widget-config="{
+	          'trigger':'.first-trigger',
+	          'align':{
+	                  'node':'.first-trigger',
+	                  'offset':[0,0],
+	                  'points':['cc','cc']
+	                  }
+	            }">
+		    <div style="background-color: blue; height: 100px; width: 100px;">
+		       我是一个弹出层
+		    </div>
+		</div>
+	</div>
+
+<h3 class='ti'>DOM 结构		<a href='#' class='J_ex' obj = 'J_DOM'>隐藏</a></h3>
+<pre class="prettyprint J_DOM"><xmp><div class="first-trigger">我只是个触点而已，把鼠标滑到我身上
+<div class="J_TWidget hidden" data-widget-type="Popup" data-widget-config="{
+      'trigger':'.first-trigger',
+      'align':{
+              'node':'.first-trigger',
+              'offset':[0,0],
+              'points':['cc','cc']
+              }
+        }">
+    <div style="background-color: blue; height: 100px; width: 100px;">
+       我是一个弹出层
+    </div>
+</div>
+</div></xmp></pre>	
+<h3 class='ti'>CSS 结构		<a href='#' class='J_ex' obj='J_CSS'>隐藏</a></h3>
+<pre class="prettyprint J_CSS">
+.hidden{
+	display:none;
+}
+
+.first-trigger,.first-trigger1{
+	width:200px;
+	height:200px;
+	border:solid 1px red;
+	margin:10px;
+}
+</pre>
+	<input type='hidden' class='J_hide' value='隐藏' />
+<input type='hidden' class='J_show' value='显示' />
+
+<script src="http://a.tbcdn.cn/apps/pamirsshop/wiki/scripts/prettify.js" type="text/javascript"> </script>
+<script src="http://a.tbcdn.cn/s/kissy/1.1.5/kissy.js"></script>
+<script src="http://a.tbcdn.cn/apps/pamirsshop/wiki/scripts/jquery-min-1.4.js"></script>
+<script src="http://a.tbcdn.cn/apps/pamirsshop/wiki/scripts/wiki.js"></script>
+
+</div>
+</body>
+</html>
