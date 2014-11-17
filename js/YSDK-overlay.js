@@ -1,16 +1,15 @@
 /*
- Copyright 2010, KISSY UI Library v1.1.5
- MIT Licensed
- build time: Oct 15 14:07
- */
+Copyright 2010, KISSY UI Library v1.1.5
+MIT Licensed
+build time: Oct 15 14:07
+*/
 /**
  * KISSY Mask
  * @creator   玉伯<lifesinger@gmail.com>, 乔花<qiaohua@taobao.com>
  */
-YSDK.prototype.mask = function (undefined) {
-alert();
-    var DOM = $,
-        DISPLAY = 'display',
+
+YSDK.add(function() {
+    var DISPLAY = 'display',
         ie = $.browser.msie && $.browser.version,
         ie6 = ie === 6,
 
@@ -22,7 +21,6 @@ alert();
             opacity: .6,
             style: ''
         };
-
     /*
      * Mask Class
      * @constructor
@@ -37,12 +35,13 @@ alert();
             return new Mask(config);
         }
 
-        config = $.extend(defaultConfig, config);
+        config = YSDK.merge(defaultConfig, config);
 
         var isShim = config.shim,
             style = isShim ? SHIM_STYLE : MASK_STYLE + config.style,
             opacity = isShim ? 0 : config.opacity,
             ifr = createMaskElem('<iframe>', style, opacity, !isShim);
+
         if (!isShim && ie) this.layer = createMaskElem('<div>', style, opacity, true);
 
         this.config = config;
@@ -51,15 +50,15 @@ alert();
 
     Mask.prototype = {
 
-        show: function () {
+        show: function() {
             $(this.iframe, this.layer).show();
         },
 
-        hide: function () {
+        hide: function() {
             $(this.iframe, this.layer).hide();
         },
 
-        toggle: function () {
+        toggle: function() {
             var isVisible = $(this.iframe).css(DISPLAY) !== 'none';
             if (isVisible) {
                 this.hide();
@@ -68,12 +67,12 @@ alert();
             }
         },
 
-        setSize: function (w, h) {
+        setSize: function(w, h) {
             setSize(this.iframe, w, h);
             setSize(this.layer, w, h);
         },
 
-        setOffset: function (x, y) {
+        setOffset: function(x, y) {
             var offset = x;
 
             if (y !== undefined) {
@@ -111,9 +110,9 @@ alert();
     }
 
     YSDK.Mask = Mask;
-};
+});
 
-YSDK.prototype.overlay = function (undefined) {
+YSDK.add(function() {
 
     var doc = document,
         ie = $.browser.msie && $.browser.version,
@@ -204,21 +203,21 @@ YSDK.prototype.overlay = function (undefined) {
         self.trigger = $(config.trigger);
 
         // 合并配置信息
-        config.align = $.extend({}, defaultConfig.align, config.align);
-        self.config = $.extend({}, defaultConfig, config);
+        config.align = YSDK.merge({}, defaultConfig.align, config.align);
+        self.config = YSDK.merge(defaultConfig, config);
 
         self._init();
     }
 
     Overlay.prototype = {
 
-        _init: function () {
+        _init: function() {
             if (this.trigger) {
                 this._bindTrigger();
             }
         },
 
-        _bindTrigger: function () {
+        _bindTrigger: function() {
             var self = this;
 
             if (self.config.triggerType === 'mouse') {
@@ -228,21 +227,21 @@ YSDK.prototype.overlay = function (undefined) {
             }
         },
 
-        _bindTriggerMouse: function () {
+        _bindTriggerMouse: function() {
             var self = this,
                 trigger = self.trigger,
                 timer;
 
-            $(trigger).bind('mouseenter', function () {
+            $(trigger).bind('mouseenter', function() {
                 self._clearHiddenTimer();
 
-                timer = setTimeout(function () {
+                timer = setTimeout(function() {
                     self.show();
                     timer = undefined;
                 }, 100);
             });
 
-            $(trigger).bind('mouseleave', function () {
+            $(trigger).bind('mouseleave', function() {
                 if (timer) {
                     clearTimeout(timer);
                     timer = undefined;
@@ -252,26 +251,26 @@ YSDK.prototype.overlay = function (undefined) {
             });
         },
 
-        _bindContainerMouse: function () {
+        _bindContainerMouse: function() {
             var self = this;
 
-            $(self.container).bind('mouseleave', function () {
+            $(self.container).bind('mouseleave', function() {
                 self._setHiddenTimer();
             });
 
-            $(self.container).bind('mouseenter', function () {
+            $(self.container).bind('mouseenter', function() {
                 self._clearHiddenTimer();
             });
         },
 
-        _setHiddenTimer: function () {
+        _setHiddenTimer: function() {
             var self = this;
-            self._hiddenTimer = setTimeout(function () {
+            self._hiddenTimer = setTimeout(function() {
                 self.hide();
             }, 120);
         },
 
-        _clearHiddenTimer: function () {
+        _clearHiddenTimer: function() {
             var self = this;
             if (self._hiddenTimer) {
                 clearTimeout(self._hiddenTimer);
@@ -279,20 +278,20 @@ YSDK.prototype.overlay = function (undefined) {
             }
         },
 
-        _bindTriggerClick: function () {
+        _bindTriggerClick: function() {
             var self = this;
 
-            $(self.trigger).bind('click', function (e) {
+            $(self.trigger).bind('click', function(e) {
                 e.halt();
                 self.show();
             });
         },
 
-        show: function () {
+        show: function() {
             this._firstShow();
         },
 
-        _firstShow: function () {
+        _firstShow: function() {
             var self = this;
 
             self._prepareMarkup();
@@ -300,29 +299,33 @@ YSDK.prototype.overlay = function (undefined) {
             self._firstShow = self._realShow;
         },
 
-        _realShow: function () {
+        _realShow: function() {
             this._setPosition();
             this._toggle(false);
         },
 
-        _toggle: function (isVisible) {
+        _toggle: function(isVisible) {
             var self = this;
 
-            $(self.container).css('visibility', isVisible ? 'hidden' : '');
+            //$(self.container).css('visibility', isVisible ? 'hidden' : '');
 
             if (self.shim) self.shim.toggle();
             if (self.config.mask) mask[isVisible ? 'hide' : 'show']();
 
             self[isVisible ? '_unbindUI' : '_bindUI']();
-            self.fire(isVisible ? EVT_HIDE : EVT_SHOW);
+            if(isVisible){
+                $(self.container).css('visibility','hidden');
+            }else {
+                $(self.container).css('visibility','visible');
+            }
         },
 
 
-        hide: function () {
+        hide: function() {
             this._toggle(true);
         },
 
-        _prepareMarkup: function () {
+        _prepareMarkup: function() {
             var self = this,
                 config = self.config,
                 container = self.container;
@@ -338,11 +341,10 @@ YSDK.prototype.overlay = function (undefined) {
             }
 
             // 已有 Markup
-            if (container) {
+            if (container.length !== 0) {
                 // 已有 markup 可以很灵活，如果没有 bdCls, 就让 body 指向 container
                 self.body = $(DOT + config.bdCls, container) || container;
-
-                container.style.cssText += DEFAULT_STYLE;
+                container.get(0).style.cssText += DEFAULT_STYLE;
             }
             // 构建 DOM
             else {
@@ -359,7 +361,7 @@ YSDK.prototype.overlay = function (undefined) {
             if (config.triggerType === 'mouse') self._bindContainerMouse();
         },
 
-        _setSize: function (w, h) {
+        _setSize: function(w, h) {
             var self = this,
                 config = self.config;
 
@@ -371,7 +373,7 @@ YSDK.prototype.overlay = function (undefined) {
             if (self.shim) self.shim.setSize(w, h);
         },
 
-        _setDisplay: function () {
+        _setDisplay: function() {
             var self = this;
             // 防止其他地方设置 display: none 后, 无法再次显示
             if ($(self.container).css('display') === 'none') {
@@ -379,7 +381,7 @@ YSDK.prototype.overlay = function (undefined) {
             }
         },
 
-        _setPosition: function () {
+        _setPosition: function() {
             var self = this,
                 xy = self.config.xy;
 
@@ -391,7 +393,7 @@ YSDK.prototype.overlay = function (undefined) {
             }
         },
 
-        move: function (x, y) {
+        move: function(x, y) {
             var self = this,
                 offset;
 
@@ -408,7 +410,7 @@ YSDK.prototype.overlay = function (undefined) {
             if (self.shim) self.shim.setOffset(offset);
         },
 
-        align: function (node, points, offset) {
+        align: function(node, points, offset) {
             var self = this,
                 alignConfig = self.config.align,
                 xy, diff, p1, p2;
@@ -434,15 +436,15 @@ YSDK.prototype.overlay = function (undefined) {
         /**
          * 获取 node 上的 align 对齐点 相对 page 的坐标
          */
-        _getAlignOffset: function (node, align) {
+        _getAlignOffset: function(node, align) {
             var V = align.charAt(0),
                 H = align.charAt(1),
                 offset, w, h, x, y;
 
-            if (node) {
+            if (node.length != 0) {
                 offset = $(node).offset();
-                w = node.offsetWidth;
-                h = node.offsetHeight;
+                w = node.get(0).offsetWidth;
+                h = node.get(0).offsetHeight;
             } else {
                 offset = {
                     left: $(document).scrollLeft(),
@@ -473,52 +475,40 @@ YSDK.prototype.overlay = function (undefined) {
             };
         },
 
-        center: function () {
+        center: function() {
             var self = this;
 
             self.move(
-                    ($(document).width() - $(self.container).width()) / 2 + $(document).scrollLeft(), ($(document).height() - $(self.container).height()) / 2 + $(document).scrollTop()
+                ($(document).width() - $(self.container).width()) / 2 + $(document).scrollLeft(), ($(document).height() - $(self.container).height()) / 2 + $(document).scrollTop()
             );
         },
 
-        _bindUI: function () {
+        _bindUI: function() {
             $(doc).bind(KEYDOWN, this._esc);
         },
 
-        _unbindUI: function () {
+        _unbindUI: function() {
             $(doc).unbind(KEYDOWN, this._esc);
         },
 
-        _esc: function (e) {
+        _esc: function(e) {
             if (e.keyCode === 27) this.hide();
         },
 
-        setBody: function (html) {
+        setBody: function(html) {
             this._setContent('body', html);
         },
 
-        _setContent: function (where, html) {
+        _setContent: function(where, html) {
             if (typeof html === 'string') $(this[where]).html(html);
         }
     }
 
     YSDK.Overlay = Overlay;
 
-};
+});
 
-
-/**
- * TODO:
- *  - stackable ?
- *  - constrain 支持可视区域或指定区域 ?
- *  - effect
- *  - draggable
- */
-/**
- * KISSY Popup
- * @creator   玉伯<lifesinger@gmail.com>, 乔花<qiaohua@taobao.com>
- */
-YSDK.prototype.popup = function (Y) {
+YSDK.add( function() {
 
     var defaultConfig = {
         triggerType: 'mouse', // 触发类型, click, mouse
@@ -540,186 +530,42 @@ YSDK.prototype.popup = function (Y) {
             return new Popup(container, config);
         }
 
-        config = config || {};
+        config = config || { };
         if ($.isPlainObject(container)) config = container;
         else config.container = container;
-        config.align = $.extend({}, defaultConfig.align, config.align);
-        Popup.superclass.constructor.call(self, $.extend({}, defaultConfig, config));
+        config.align = YSDK.merge({},(defaultConfig.align), config.align);
+
+        Popup.superclass.constructor.call(self, YSDK.merge(defaultConfig, config));
     }
 
+    YSDK.extend(Popup, YSDK.Overlay);
+    YSDK.Popup = Popup;
 
-    YSDK.Popup = YSDK.extend(Popup, Y.overlay);
-
-}
-
-/**
- * KISSY.Dialog
- * @creator  玉伯<lifesinger@gmail.com>, 乔花<qiaohua@taobao.com>
- */
-YSDK.prototype.dialog = function (Y) {
-
-    var DOT = '.', DIV = '<div>',
-
-        CLS_CONTAINER = 'ks-overlay ks-dialog',
-        CLS_PREFIX = 'ks-dialog-',
-
-        defaultConfig = {
-            /*
-             * DOM 结构
-             *  <div class="ks-overlay ks-dialog">
-             *      <div class="ks-dialog-hd">
-             *          <div class="ks-dialog-close"></div>
-             *      </div>
-             *      <div class="ks-dialog-bd"></div>
-             *      <div class="ks-dialog-ft"></div>
-             *  </div>
-             */
-            header: '',
-            footer: '',
-
-            containerCls: CLS_CONTAINER,
-            hdCls: CLS_PREFIX + 'hd',
-            bdCls: CLS_PREFIX + 'bd',
-            ftCls: CLS_PREFIX + 'ft',
-            closeBtnCls: CLS_PREFIX + 'close',
-
-            width: 400,
-            height: 300,
-            closable: true
-        };
-
-    /**
-     * Dialog Class
-     * @constructor
-     * attached members：
-     *  - this.header
-     *  - this.footer
-     *  - this.manager
-     */
-    function Dialog(container, config) {
-        var self = this;
-
-        // factory or constructor
-        if (!(self instanceof Dialog)) {
-            return new Dialog(container, config);
-        }
-
-        config = config || {};
-        if ($.isPlainObject(container)) config = container;
-        else config.container = container;
-        config.align = $.extend({}，defaultConfig.align, config.align);
-
-        Dialog.superclass.constructor.call(self, $.extend({},defaultConfig, config));
-
-        self.manager = YSDK.DialogManager;
-        self.manager.register(self);
-    }
-
-    $.extend(Dialog, Y.Overlay);
-    YSDK.Dialog = Dialog;
-
-    Dialog.prototype = {
-
-        _prepareMarkup: function () {
-            var self = this,
-                config = self.config;
-
-            Dialog.superclass._prepareMarkup.call(self);
-
-            self.header = S.get(DOT + config.hdCls, self.container);
-            if (!self.header) {
-                self.header = DOM.create(DIV, {'class': config.hdCls});
-                DOM.insertBefore(self.header, self.body);
-            }
-            self.setHeader(config.header);
-
-            if (config.footer) {
-                self.footer = S.get(DOT + config.ftCls, self.container);
-                if (!self.footer) {
-                    self.footer = DOM.create(DIV, {'class': config.ftCls});
-                    self.container.appendChild(self.footer);
-                }
-                self.setFooter(config.footer);
-            }
-
-            if (config.closable) self._initClose();
-        },
-
-        _initClose: function () {
-            var self = this, config = self.config,
-                elem = DOM.create(DIV, {'class': config.closeBtnCls});
-
-            DOM.html(elem, 'close');
-
-            Event.on(elem, 'click', function (e) {
-                e.halt();
-                self.hide();
-            });
-
-            self.header.appendChild(elem);
-        },
-
-        setHeader: function (html) {
-            this._setContent('header', html);
-        },
-
-        setFooter: function (html) {
-            this._setContent('footer', html);
-        }
-    }
+});
 
 
-    YSDK.DialogManager = {
-
-        register: function (dlg) {
-            if (dlg instanceof Dialog) {
-                this._dialog.push(dlg);
-            }
-        },
-
-        _dialog: [],
-
-        hideAll: function () {
-            $.each(this._dialog, function (dlg) {
-                dlg && dlg.hide();
-            })
-        }
-    };
-
-};
-
-/**
- * TODO:
- *  - S.guid() 唯一标识
- */
-
-
-/**
- *  auto render
- * @creator  玉伯<lifesinger@gmail.com>
- */
-YSDK.prototype.autorender = function (Y) {
+YSDK.add(function(S) {
 
     /**
      * 自动渲染 container 元素内的所有 Overlay 组件
      * 默认钩子：<div class="KS_Widget" data-widget-type="Popup" data-widget-config="{...}">
      */
-    Y.Overlay.autoRender = function (hook, container) {
+    YSDK.Overlay.autoRender = function(hook, container) {
         hook = '.' + (hook || 'KS_Widget');
-
-        $.query(hook, container).each(function (elem) {
+        var ts = container+ ' '+ hook;
+        $(ts).each(function(i,elem) {
             var type = elem.getAttribute('data-widget-type'), config;
 
             if (type && ('Dialog Popup'.indexOf(type) > -1)) {
                 try {
                     config = elem.getAttribute('data-widget-config');
                     if (config) config = config.replace(/'/g, '"');
-                    new S[type](elem, S.JSON.parse(config));
-                } catch (ex) {
+                    new YSDK[type](elem, $.parseJSON(config));
+                } catch(ex) {
                     console.log('Overlay.autoRender: ' + ex, 'warn');
                 }
             }
         });
     }
 
-};
+});
