@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html slick-uniqueid="3">
+<head>
+    <link rel="stylesheet" href="http://a.tbcdn.cn/apps/pamirsshop/wiki/stylesheets/base-min.css">
+    <link href="http://a.tbcdn.cn/apps/pamirsshop/wiki/stylesheets/prettify.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://a.tbcdn.cn/apps/pamirsshop/wiki/stylesheets/wiki.css">
+
+
+    <style type="text/css"></style>
+    <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+    .en-markup-crop-options {
+        top: 18px !important;
+        left: 50% !important;
+        margin-left: -100px !important;
+        width: 200px !important;
+        border: 2px rgba(255, 255, 255, .38) solid !important;
+        border-radius: 4px !important;
+    }
+
+    .en-markup-crop-options div div:first-of-type {
+        margin-left: 0px !important;
+    }
+    </style>
+</head>
+<body><h2 class="ti">taba - 标签1</h2>
+
+<div class="J_TWidget tab1" data-widget-type="Tabs">
+    <ul class="ks-switchable-nav">
+        <li class="">标题 A</li>
+        <li class="ks-active">标题 B</li>
+        <li class="">标题 C</li>
+        <li class="">标题 D</li>
+        <li class="">标题 E</li>
+    </ul>
+    <div class="ks-switchable-content">
+        <div style="display: none;">内容 A</div>
+        <div style="display: block;">内容 B</div>
+        <div style="display: none;">内容 C</div>
+        <div style="display: none;">内容 D</div>
+        <div style="display: none;">内容 E</div>
+    </div>
+</div>
+
+
+<script src="http://lib.sinaapp.com/js/jquery/1.8.2/jquery.min.js"></script>
+<script src="js/YSDK.js"></script>
+<script src="js/YSDK-switchable.js"></script>
+<script>
+    //console.log(YSDK);
+    YSDK.Switchable.autoRender('J_TWidget');
+</script>
+</body>
+</html>

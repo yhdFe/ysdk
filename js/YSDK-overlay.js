@@ -1,14 +1,14 @@
 /*
-Copyright 2010, KISSY UI Library v1.1.5
-MIT Licensed
-build time: Oct 15 14:07
-*/
+ Copyright 2010, KISSY UI Library v1.1.5
+ MIT Licensed
+ build time: Oct 15 14:07
+ */
 /**
  * KISSY Mask
  * @creator   玉伯<lifesinger@gmail.com>, 乔花<qiaohua@taobao.com>
  */
 
-YSDK.add(function() {
+YSDK.add(function () {
     var DISPLAY = 'display',
         ie = $.browser.msie && $.browser.version,
         ie6 = ie === 6,
@@ -50,15 +50,15 @@ YSDK.add(function() {
 
     Mask.prototype = {
 
-        show: function() {
+        show: function () {
             $(this.iframe, this.layer).show();
         },
 
-        hide: function() {
+        hide: function () {
             $(this.iframe, this.layer).hide();
         },
 
-        toggle: function() {
+        toggle: function () {
             var isVisible = $(this.iframe).css(DISPLAY) !== 'none';
             if (isVisible) {
                 this.hide();
@@ -67,12 +67,12 @@ YSDK.add(function() {
             }
         },
 
-        setSize: function(w, h) {
+        setSize: function (w, h) {
             setSize(this.iframe, w, h);
             setSize(this.layer, w, h);
         },
 
-        setOffset: function(x, y) {
+        setOffset: function (x, y) {
             var offset = x;
 
             if (y !== undefined) {
@@ -112,7 +112,7 @@ YSDK.add(function() {
     YSDK.Mask = Mask;
 });
 
-YSDK.add(function() {
+YSDK.add(function () {
 
     var doc = document,
         ie = $.browser.msie && $.browser.version,
@@ -211,13 +211,13 @@ YSDK.add(function() {
 
     Overlay.prototype = {
 
-        _init: function() {
+        _init: function () {
             if (this.trigger) {
                 this._bindTrigger();
             }
         },
 
-        _bindTrigger: function() {
+        _bindTrigger: function () {
             var self = this;
 
             if (self.config.triggerType === 'mouse') {
@@ -227,21 +227,21 @@ YSDK.add(function() {
             }
         },
 
-        _bindTriggerMouse: function() {
+        _bindTriggerMouse: function () {
             var self = this,
                 trigger = self.trigger,
                 timer;
 
-            $(trigger).bind('mouseenter', function() {
+            $(trigger).bind('mouseenter', function () {
                 self._clearHiddenTimer();
 
-                timer = setTimeout(function() {
+                timer = setTimeout(function () {
                     self.show();
                     timer = undefined;
                 }, 100);
             });
 
-            $(trigger).bind('mouseleave', function() {
+            $(trigger).bind('mouseleave', function () {
                 if (timer) {
                     clearTimeout(timer);
                     timer = undefined;
@@ -251,26 +251,26 @@ YSDK.add(function() {
             });
         },
 
-        _bindContainerMouse: function() {
+        _bindContainerMouse: function () {
             var self = this;
 
-            $(self.container).bind('mouseleave', function() {
+            $(self.container).bind('mouseleave', function () {
                 self._setHiddenTimer();
             });
 
-            $(self.container).bind('mouseenter', function() {
+            $(self.container).bind('mouseenter', function () {
                 self._clearHiddenTimer();
             });
         },
 
-        _setHiddenTimer: function() {
+        _setHiddenTimer: function () {
             var self = this;
-            self._hiddenTimer = setTimeout(function() {
+            self._hiddenTimer = setTimeout(function () {
                 self.hide();
             }, 120);
         },
 
-        _clearHiddenTimer: function() {
+        _clearHiddenTimer: function () {
             var self = this;
             if (self._hiddenTimer) {
                 clearTimeout(self._hiddenTimer);
@@ -278,20 +278,20 @@ YSDK.add(function() {
             }
         },
 
-        _bindTriggerClick: function() {
+        _bindTriggerClick: function () {
             var self = this;
 
-            $(self.trigger).bind('click', function(e) {
+            $(self.trigger).bind('click', function (e) {
                 e.halt();
                 self.show();
             });
         },
 
-        show: function() {
+        show: function () {
             this._firstShow();
         },
 
-        _firstShow: function() {
+        _firstShow: function () {
             var self = this;
 
             self._prepareMarkup();
@@ -299,12 +299,12 @@ YSDK.add(function() {
             self._firstShow = self._realShow;
         },
 
-        _realShow: function() {
+        _realShow: function () {
             this._setPosition();
             this._toggle(false);
         },
 
-        _toggle: function(isVisible) {
+        _toggle: function (isVisible) {
             var self = this;
 
             //$(self.container).css('visibility', isVisible ? 'hidden' : '');
@@ -313,19 +313,19 @@ YSDK.add(function() {
             if (self.config.mask) mask[isVisible ? 'hide' : 'show']();
 
             self[isVisible ? '_unbindUI' : '_bindUI']();
-            if(isVisible){
-                $(self.container).css('visibility','hidden');
-            }else {
-                $(self.container).css('visibility','visible');
+            if (isVisible) {
+                $(self.container).css('visibility', 'hidden');
+            } else {
+                $(self.container).css('visibility', 'visible');
             }
         },
 
 
-        hide: function() {
+        hide: function () {
             this._toggle(true);
         },
 
-        _prepareMarkup: function() {
+        _prepareMarkup: function () {
             var self = this,
                 config = self.config,
                 container = self.container;
@@ -361,7 +361,7 @@ YSDK.add(function() {
             if (config.triggerType === 'mouse') self._bindContainerMouse();
         },
 
-        _setSize: function(w, h) {
+        _setSize: function (w, h) {
             var self = this,
                 config = self.config;
 
@@ -373,7 +373,7 @@ YSDK.add(function() {
             if (self.shim) self.shim.setSize(w, h);
         },
 
-        _setDisplay: function() {
+        _setDisplay: function () {
             var self = this;
             // 防止其他地方设置 display: none 后, 无法再次显示
             if ($(self.container).css('display') === 'none') {
@@ -381,7 +381,7 @@ YSDK.add(function() {
             }
         },
 
-        _setPosition: function() {
+        _setPosition: function () {
             var self = this,
                 xy = self.config.xy;
 
@@ -393,7 +393,7 @@ YSDK.add(function() {
             }
         },
 
-        move: function(x, y) {
+        move: function (x, y) {
             var self = this,
                 offset;
 
@@ -410,7 +410,7 @@ YSDK.add(function() {
             if (self.shim) self.shim.setOffset(offset);
         },
 
-        align: function(node, points, offset) {
+        align: function (node, points, offset) {
             var self = this,
                 alignConfig = self.config.align,
                 xy, diff, p1, p2;
@@ -436,7 +436,7 @@ YSDK.add(function() {
         /**
          * 获取 node 上的 align 对齐点 相对 page 的坐标
          */
-        _getAlignOffset: function(node, align) {
+        _getAlignOffset: function (node, align) {
             var V = align.charAt(0),
                 H = align.charAt(1),
                 offset, w, h, x, y;
@@ -475,7 +475,7 @@ YSDK.add(function() {
             };
         },
 
-        center: function() {
+        center: function () {
             var self = this;
 
             self.move(
@@ -483,23 +483,23 @@ YSDK.add(function() {
             );
         },
 
-        _bindUI: function() {
+        _bindUI: function () {
             $(doc).bind(KEYDOWN, this._esc);
         },
 
-        _unbindUI: function() {
+        _unbindUI: function () {
             $(doc).unbind(KEYDOWN, this._esc);
         },
 
-        _esc: function(e) {
+        _esc: function (e) {
             if (e.keyCode === 27) this.hide();
         },
 
-        setBody: function(html) {
+        setBody: function (html) {
             this._setContent('body', html);
         },
 
-        _setContent: function(where, html) {
+        _setContent: function (where, html) {
             if (typeof html === 'string') $(this[where]).html(html);
         }
     }
@@ -508,7 +508,7 @@ YSDK.add(function() {
 
 });
 
-YSDK.add( function() {
+YSDK.add(function () {
 
     var defaultConfig = {
         triggerType: 'mouse', // 触发类型, click, mouse
@@ -530,10 +530,10 @@ YSDK.add( function() {
             return new Popup(container, config);
         }
 
-        config = config || { };
+        config = config || {};
         if ($.isPlainObject(container)) config = container;
         else config.container = container;
-        config.align = YSDK.merge({},(defaultConfig.align), config.align);
+        config.align = YSDK.merge({}, (defaultConfig.align), config.align);
 
         Popup.superclass.constructor.call(self, YSDK.merge(defaultConfig, config));
     }
@@ -544,7 +544,7 @@ YSDK.add( function() {
 });
 
 
-KISSY.add(function() {
+YSDK.add(function () {
 
     var DOT = '.', DIV = '<div>',
 
@@ -592,23 +592,23 @@ KISSY.add(function() {
             return new Dialog(container, config);
         }
 
-        config = config || { };
+        config = config || {};
         if ($.isPlainObject(container)) config = container;
         else config.container = container;
-        config.align = YSDK.merge({},defaultConfig.align, config.align);
-        
+        config.align = YSDK.merge({}, defaultConfig.align, config.align);
+
         Dialog.superclass.constructor.call(self, YSDK.merge(defaultConfig, config));
 
         self.manager = YSDK.DialogManager;
         self.manager.register(self);
     }
 
-    YSDK.extend(Dialog, S.Overlay);
+    YSDK.extend(Dialog, YSDK.Overlay);
     YSDK.Dialog = Dialog;
 
     Dialog.prototype = {
 
-        _prepareMarkup: function() {
+        _prepareMarkup: function () {
             var self = this,
                 config = self.config;
 
@@ -616,16 +616,16 @@ KISSY.add(function() {
 
             self.header = $(DOT + config.hdCls, self.container);
             if (!self.header) {
-                self.header = DOM.create(DIV, { 'class': config.hdCls });
-                DOM.insertBefore(self.header, self.body);
+                self.header = $('<div class='+config.hdCls+'></div>');
+                self.header.insertBefore(self.body);
             }
             self.setHeader(config.header);
 
             if (config.footer) {
                 self.footer = $(DOT + config.ftCls, self.container);
                 if (!self.footer) {
-                    self.footer = DOM.create(DIV, { 'class': config.ftCls });
-                    self.container.appendChild(self.footer);
+                    self.footer = $('<div class='+config.ftCls+'></div>');
+                    self.container.append(self.footer);
                 }
                 self.setFooter(config.footer);
             }
@@ -633,32 +633,32 @@ KISSY.add(function() {
             if (config.closable) self._initClose();
         },
 
-        _initClose: function() {
+        _initClose: function () {
             var self = this, config = self.config,
-                elem = DOM.create(DIV, { 'class': config.closeBtnCls });
+                elem = $('<div class='+config.closeBtnCls+'></div>');
 
             $(elem).html('close');
-            
-            $(elem).bind('click', function(e) {
+
+            $(elem).bind('click', function (e) {
                 e.halt();
                 self.hide();
             });
 
-            self.header.appendChild(elem);
+            self.header.append(elem);
         },
 
-        setHeader: function(html) {
+        setHeader: function (html) {
             this._setContent('header', html);
         },
 
-        setFooter: function(html) {
+        setFooter: function (html) {
             this._setContent('footer', html);
         }
-    });
+    };
 
     YSDK.DialogManager = {
 
-        register: function(dlg) {
+        register: function (dlg) {
             if (dlg instanceof Dialog) {
                 this._dialog.push(dlg);
             }
@@ -666,8 +666,8 @@ KISSY.add(function() {
 
         _dialog: [],
 
-        hideAll: function() {
-            $.each(this._dialog, function(dlg) {
+        hideAll: function () {
+            $.each(this._dialog, function (i,dlg) {
                 dlg && dlg.hide();
             })
         }
@@ -676,16 +676,16 @@ KISSY.add(function() {
 });
 
 
-YSDK.add(function(S) {
+YSDK.add(function (S) {
 
     /**
      * 自动渲染 container 元素内的所有 Overlay 组件
      * 默认钩子：<div class="KS_Widget" data-widget-type="Popup" data-widget-config="{...}">
      */
-    YSDK.Overlay.autoRender = function(hook, container) {
+    YSDK.Overlay.autoRender = function (hook, container) {
         hook = '.' + (hook || 'KS_Widget');
-        var ts = container+ ' '+ hook;
-        $(ts).each(function(i,elem) {
+        var ts = container + ' ' + hook;
+        $(ts).each(function (i, elem) {
             var type = elem.getAttribute('data-widget-type'), config;
 
             if (type && ('Dialog Popup'.indexOf(type) > -1)) {
@@ -693,7 +693,7 @@ YSDK.add(function(S) {
                     config = elem.getAttribute('data-widget-config');
                     if (config) config = config.replace(/'/g, '"');
                     new YSDK[type](elem, $.parseJSON(config));
-                } catch(ex) {
+                } catch (ex) {
                     console.log('Overlay.autoRender: ' + ex, 'warn');
                 }
             }

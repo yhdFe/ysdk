@@ -5131,7 +5131,7 @@ KISSY.add('anim', function(S, undefined) {
         }
 
         var self = this,
-            isConfig = S.isPlainObject(duration),
+            isConfig = $.isPlainObject(duration),
             style = props, config;
 
         /**
