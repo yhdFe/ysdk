@@ -1,0 +1,641 @@
+/**
+ * common CSS
+ */
+.hidden{
+	display:none;
+}
+#header{
+	display:none;
+}
+#footer{
+	display:none;
+}
+#page{
+	top:20px !important;
+}
+body{
+		margin:0 0;
+	}
+
+.header{
+	height:30px;
+	background:#333333;
+	margin-bottom:20px;
+}
+.header h1{
+	color:#ffffff;
+	padding:4px 10px;
+}
+.fc-content{
+	margin:20px 50px;
+}
+h2.ti{
+	font-size:16px;
+	margin-bottom:20px;
+}
+h2.ti a{
+	font-size:12px;
+}
+h3.ti{
+	font-size:14px;
+	margin:60px 0 20px 0;
+	padding-left:20px;
+	list-style:decimal;
+	background:url(http://img04.taobaocdn.com/tps/i4/T1slB7XkXqXXXXXXXX-8-8.png) 0 8px no-repeat;
+	
+}
+h3 a{
+	margin-left:20px;
+}
+pre{
+	margin-bottom:20px;
+}
+.prettyprint{
+	font-size:13px;
+	border:dashed 1px #2F6FAB !important;
+	background:#FBFBE7;
+}
+a.J_ex{
+	color:#0BB0DB;
+}
+a.J_ex:hover{
+	text-decoration:none;
+}
+/**
+ * tab1
+ */
+.tab1 li{
+		list-style:none;
+	}
+    .tab1 { position: relative; width: 750px; padding-top: 29px; }
+    .tab1 .yhd-switchable-nav { position: absolute; left: 20px; margin-top: -29px; z-index: 99; }
+    .tab1 .yhd-switchable-nav li {
+        float: left;
+        width: 130px;
+        height: 27px;
+        line-height: 21px;
+        text-align: center;
+        background: url(http://img01.taobaocdn.com/tps/i1/T1XtV7XjhsXXXXXXXX-130-70.gif) no-repeat 0 6px;
+        margin-right: 3px;
+        padding-top: 8px;
+        cursor: pointer;
+    }
+    .tab1 .yhd-switchable-nav li.yhd-active { background-position: 0 -40px; cursor: default; }
+    .tab1 .yhd-switchable-content {
+        position: relative;
+        height: 120px;
+        padding: 20px;
+        border: 1px solid #AEC7E5;
+    }
+
+/**
+ * tab2
+ */
+.pasale{
+	height:200px;
+}
+.pasale li{
+	list-style:none;
+	float:left;
+}
+.pasale {
+    margin-bottom: 13px;
+    margin-top: 9px;
+	width:850px;
+	overflow:hidden;
+}
+.pasale .bbp-nav {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 3px solid #B30024;
+	height:25px;
+}
+.pasale .bbp-nav li {
+    background: url("http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png") no-repeat scroll 0 -206px transparent;
+    border-color: #E3E3E3 #E3E3E3 -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    display: block;
+    font-size: 12px;
+    height: 24px;
+    margin-bottom: -3px;
+    margin-left: 6px;
+    position: relative;
+    width: 181px;
+	float:left;
+}
+.pasale .bbp-nav li.first {
+    margin-left: 1px;
+}
+.pasale .bbp-nav li span {
+    background: url("http://co.youa.baidu.com/picture/r/mall/hp090617/images/new.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 18px;
+    overflow: hidden;
+    position: absolute;
+    right: 15px;
+    text-indent: -999px;
+    top: -8px;
+    width: 24px;
+}
+.pasale .bbp-nav li a {
+    display: block;
+    float: none;
+    padding: 4px 0 8px;
+    text-align: center;
+	text-decoration:none;
+}
+.pasale .bbp-nav li.selected {
+    background: url("http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png") no-repeat scroll 0 -167px transparent;
+    border: medium none;
+    height: 28px;
+    line-height: 28px;
+    top: -3px;
+}
+.pasale .bbp-nav li.selected a {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    outline: medium none;
+    padding: 0;
+    position: relative;
+}
+.pasale .bbp-content {
+    border: 1px solid #E7E7E7;
+    padding: 5px 2px 2px;
+}
+.pasale .bbp-content ul {
+    margin: 3px 0;
+}
+.pasale .bbp-content li {
+    border-right: 1px dotted #CECECE;
+    height: 141px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    width: 123px;
+}
+.pasale .bbp-content li span, .pasale .bbp-content li em {
+    background: url("http://co.youa.baidu.com/picture/r/mall/hp090617/images/sale.png") no-repeat scroll 0 0 transparent;
+    color: #FFF600;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 40px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 46px;
+}
+.pasale .bbp-content li img {
+    display: block;
+    margin: 0 auto 3px;
+    text-align: center;
+	border:none;
+}
+.pasale .bbp-content li a{
+	font-size:12px;
+}
+.pasale .bbp-content li strong {
+    color: #FF3300;
+}
+
+
+/**
+ * accordion1
+ */
+
+.accordion1 {
+    height: 260px;
+    border: 1px solid #ccc;
+	width:416px;
+	overflow:hidden;
+}
+
+.accordion1 .yhd-switchable-trigger {
+    padding: 3px 10px;
+    cursor: pointer;
+    border-right: 1px solid #ddd;
+    background: #f3f3f3;
+    overflow: hidden;
+    width: 18px;
+	height:260px;
+	float:left;
+}
+.accordion1 .yhd-switchable-trigger h3 {
+    float: left;
+    width: 18px;
+    margin-left: 0px;
+}
+.accordion1 .yhd-switchable-panel {
+    height: 260px;
+    padding: 0px;
+    border-right: 1px solid #ddd;
+	float:left;
+	width:260px;
+}
+.accordion1 .yhd-switchable-panel img{
+	margin:20px;
+}
+.accordion1 .yhd-icon {
+    float: left;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    margin-top: 2px;
+    font-size: 0;
+    vertical-align: middle;
+    background: url(http://img02.taobaocdn.com/tps/i2/T1GK07XklnXXXXXXXX-32-12.png) no-repeat 0 0;
+}
+.accordion1 .yhd-active .yhd-icon {
+    background-position: -20px 0;
+}
+.accordion1 .last-trigger {
+    border-right-width: 0
+}
+.accordion1 .yhd-active {
+    border-right-width: 1px
+}
+.accordion1 .last-panel {
+    border-right: none
+}
+/**
+ * accotdion2
+ */
+
+.accordion2 {
+    width: 260px;
+    border: 1px solid #ccc;
+	margin-bottom:20px;
+}
+
+.accordion2 .yhd-switchable-trigger {
+    padding: 3px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    background: #f3f3f3;
+    overflow: hidden;
+    height: 18px;
+}
+
+.accordion2 .yhd-switchable-trigger h3 {
+    float: left;
+    width: 100px;
+    margin-left: 5px;
+}
+
+.accordion2 .yhd-switchable-panel {
+    height: 260px;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion2 .yhd-icon {
+    float: left;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    margin-top: 2px;
+    font-size: 0;
+    vertical-align: middle;
+    background: url(http://img02.taobaocdn.com/tps/i2/T1GK07XklnXXXXXXXX-32-12.png) no-repeat 0 0;
+}
+
+.accordion2 .yhd-active .yhd-icon {
+    background-position: -20px 0;
+}
+
+.accordion2 .last-trigger {
+    border-bottom-width: 0
+}
+
+.accordion2 .yhd-active {
+    border-bottom-width: 1px
+}
+
+.accordion2 .last-panel {
+    border-bottom: none
+}
+
+.accordion2 .yhd-switchable-panel img {
+    margin: 20px;
+}
+ 
+ /**
+  * carourse1
+  */
+ li{
+		list-style:none;
+	}
+	.content{
+		width:680px;
+		border:solid 1px 
+	}
+	
+	img{
+		border:none;
+	}
+	
+	.mall-slide .yhd-switchable-nav{
+		margin-top:140px;
+		width:460px;
+		overflow:hidden;
+		
+	}
+	.mall-slide .yhd-switchable-nav li{
+		float:left;
+		width:130px;
+		height:50px;
+		overflow:hidden;
+		margin-right:15px;
+		border:solid 1px #FFFFFF;
+		cursor:pointer;
+	}
+	.mall-slide .yhd-switchable-nav li.yhd-active{
+		border:solid 1px red;
+	}
+	
+	
+	
+	.mall-slide .yhd-switchable-nav li img{
+		width:150px;
+		height:50px;
+	}
+	.mall-slide {
+	    border-bottom: 1px solid #E5E5E5 !important;
+	    border-left: 1px solid #D8D8D8;
+	    border-right: 1px solid #D8D8D8;
+	    border-top: 1px solid #D8D8D8;
+	    height: 200px;
+	    position: relative;
+	    width: 489px;
+	}
+	.mall-slide .mall-prev {
+	    background: url("http://a.tbcdn.cn/p/fp/2011a/assets/sprites.gif") no-repeat scroll 0 -109px transparent;
+	    display: block;
+	    height: 137px;
+	    left: 0;
+	    position: absolute;
+	    width: 25px;
+	}
+	.mall-slide .mall-next {
+	    background: url("http://a.tbcdn.cn/p/fp/2011a/assets/sprites.gif") no-repeat scroll -25px -109px transparent;
+	    display: block;
+	    height: 137px;
+	    position: absolute;
+	    right: 0;
+	    width: 25px;
+	}
+	.mall-slide .mall-prev:hover {
+	    background-position: 0 -246px;
+	}
+	.mall-slide .mall-next:hover {
+	    background-position: -25px -246px;
+	}
+	.mall-slide .mall-content {
+	    background: -moz-linear-gradient(center top , #ECECEC, #FFFFFF) repeat scroll 0 0 transparent;
+	    height: 200px;
+	    left: 25px;
+	    overflow: hidden;
+	    position: absolute;
+	    width: 439px;
+	}
+	.mall-slide li.big-piclist {
+	    display: block;
+	    float: left;
+	    height: 137px;
+	    overflow: hidden;
+	    width: 440px;
+	}
+	.mall-slide .big-piclist a {
+	    display: block;
+	    float: left;
+	    height: 137px;
+	    margin-right: 1px;
+	    overflow: hidden;
+	    width: 109px;
+	}
+	.mall-slide .big-piclist img {
+	}
+	.mall-slide .big-piclist a.last {
+	    margin-right: 0;
+	    width: 110px;
+	}
+	.mall-slide .sm-piclist {
+	    margin-left: -1px;
+	    margin-top: 0;
+	}
+	.bt-none {
+	    border-top: 0 none !important;
+	}
+	.bl-none {
+	    border-left: 0 none !important;
+	}
+	.mall-slide .sm-piclist a {
+	    background-color: white;
+	    border-left: 1px solid #E6E6E6;
+	    border-top: 1px solid #E6E6E6;
+	    display: block;
+	    float: left;
+	    height: 44px;
+	    overflow: hidden;
+	    padding-top: 1px;
+	    width: 87px;
+	}
+	.mall-slide .sm-piclist a.last {
+	}
+	.mall-slide .sm-piclist a:hover {
+	    border-bottom: 2px solid #B81426;
+	    height: 42px;
+	}
+	.tb-slide {
+	    border: 1px solid #D8D8D8;
+	}
+	.tb-slide, .tb-slide li {
+	    font-size: 0;
+	    height: 170px;
+	    overflow: hidden;
+	    width: 490px;
+	}
+	.main-promo .loading-s .tb-slide-list li {
+	    background: url("http://img02.taobaocdn.com/tps/i2/T16WJqXaXeXXXXXXXX-32-32.gif") no-repeat scroll 50% 50% transparent;
+	}
+	.tb-slide-triggers {
+	    bottom: 5px;
+	    height: 18px;
+	    padding-top: 2px;
+	    position: absolute;
+	    right: 5px;
+	    z-index: 10;
+	}
+	.tb-slide-triggers li {
+	    -moz-border-radius: 20px 20px 20px 20px;
+	    background-color: #FFFFFF;
+	    color: #DE7D4B;
+	    cursor: pointer;
+	    float: left;
+	    font-size: 13px;
+	    height: 20px;
+	    line-height: 20px;
+	    margin-left: 3px;
+	    margin-top: -2px;
+	    opacity: 0.7;
+	    overflow: visible;
+	    position: relative;
+	    text-align: center;
+	    width: 20px;
+	}
+	.tb-slide-triggers li.yhd-active {
+	    background-color: #FF6600;
+	    color: #FFFFFF;
+	    filter: none;
+	    font-weight: bold;
+	    opacity: 1;
+	}
+ 
+ /**
+  * carousel2
+  */
+ 
+ 
+ .scrollable {
+        position: relative;
+        width: 820px;
+    }
+    .scrollable .prev, .scrollable .next {
+        position: absolute;
+        top: 50px;
+        color: #666;
+        cursor: pointer;
+    }
+    .scrollable .prev { left: 10px; }
+    .scrollable .next { right: 10px; }
+    .scrollable .disable { color: #ddd; cursor: default; }
+
+    .scrollable .yhd-switchable-nav {
+        position: absolute;
+        right: 30px;
+        top: -10px;
+    }
+    .scrollable .yhd-switchable-nav li {
+        float: left;
+        padding: 5px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    .scrollable .yhd-switchable-nav li.yhd-active {
+        color: #C8282B;
+    }
+
+    .scroller {
+        position: relative;
+        width: 680px;
+        height: 120px;
+        border: 1px solid #ccc;
+        background-color: #F9F9F9;
+        margin: auto;
+        overflow: hidden;
+    }
+    .scroller .yhd-switchable-content img {
+        float: left;
+        width: 100px;
+        height: 75px;
+        padding: 2px;
+        margin: 20px 15px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        display: inline !important; /* fix ie6 双边�? bug */
+    }
+	/**
+	 * slide1
+	 */
+	.slide1 { position: relative; width: 470px; height: 150px; border: 1px solid #B6D1E6; overflow: hidden; }
+    .slide1 .yhd-switchable-nav { position: absolute; bottom: 5px; right: 5px; z-index: 99; }
+    .slide1 .yhd-switchable-nav li {
+        float: left;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        margin-left: 3px;
+        background-color: #FCF2CF;
+        border: 1px solid #F47500;
+        color: #D94B01;
+        text-align: center;
+        cursor: pointer;
+    }
+    .slide1 .yhd-switchable-nav li.yhd-active {
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        margin-top: -1px;
+        color: #FFF;
+        background-color: #FFB442;
+        font-weight: bold;
+    }
+    .slide1 .yhd-switchable-content li { height: 150px; width: 470px; overflow: hidden; }
+    /* for countdown plugin */
+    .slide1 .yhd-switchable-nav li,
+    .slide1 .yhd-switchable-trigger-content {
+        position: relative;
+    }
+    .slide1 .yhd-switchable-trigger-mask {
+        position: absolute;
+        right: 0;
+        width: 18px;
+        height: 18px;
+        background-color: #FF9415;
+        visibility: hidden
+    }
+    .slide1 .yhd-active .yhd-switchable-trigger-mask {
+        visibility: visible
+    }
+	
+	/**
+	 * slide2
+	 */
+.slide2 {
+        position: relative;
+        width: 515px;
+        height: 220px;
+        border: 1px solid #D3D2D2;
+        padding: 1px;
+        overflow: hidden;
+    }
+    .slide2 .yslider-stick {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 106px;
+        font-size: 14px;
+        background: #fff;
+        margin: 1px;
+        z-index: 99;
+    }
+    .slide2 .yslider-stick li {
+        border-bottom: 1px solid #EDEDED;
+    }
+    .slide2 .yslider-stick li a {
+        display: block;
+        text-indent: 15px;
+        padding: 8px 5px;
+        color: #666;
+    }
+    .slide2 .yslider-stick li.selected {
+        background-color: #C8282B;
+    }
+    .slide2 .yslider-stick li.selected a {
+        color: #fff;
+        border-left: 3px solid #B30024;
+    }
+    .slide2 .yslider-stage {
+        height: 220px;
+        width: 405px;
+    }
+	/**
+	 * slide3
+	 */
+	.scroll-news { height: 20px; overflow: hidden; }
+    .scroll-news a { color: #FF7E00; }
+		

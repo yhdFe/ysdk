@@ -1,5 +1,5 @@
 YSDK.add(function () {
-    var DISPLAY = "display", BLOCK = "block", NONE = "none", FORWARD = "forward", BACKWARD = "backward", DOT = ".", EVENT_INIT = "init", EVENT_BEFORE_SWITCH = "beforeSwitch", EVENT_SWITCH = "switch", CLS_PREFIX = "ks-switchable-";
+    var DISPLAY = "display", BLOCK = "block", NONE = "none", FORWARD = "forward", BACKWARD = "backward", DOT = ".", EVENT_INIT = "init", EVENT_BEFORE_SWITCH = "beforeSwitch", EVENT_SWITCH = "switch", CLS_PREFIX = "yhd-switchable-";
 
     function Switchable(container, config) {
         var self = this;
@@ -31,7 +31,7 @@ YSDK.add(function () {
         triggerType: "mouse",
         delay: .1,
         activeIndex: 0,
-        activeTriggerCls: "ks-active",
+        activeTriggerCls: "yhd-active",
         steps: 1,
         viewSize: []
     };
@@ -368,8 +368,8 @@ YSDK.add(function () {
 
 YSDK.add(function () {
     var EVENT_BEFORE_SWITCH = "beforeSwitch", IMG_SRC = "img-src", AREA_DATA = "area-data", FLAGS = {}, Switchable = YSDK.Switchable;
-    FLAGS[IMG_SRC] = "data-ks-lazyload-custom";
-    FLAGS[AREA_DATA] = "ks-datalazyload-custom";
+    FLAGS[IMG_SRC] = "data-yhd-lazyload-custom";
+    FLAGS[AREA_DATA] = "yhd-datalazyload-custom";
     YSDK.mix(Switchable.Config, {
         lazyDataType: AREA_DATA
     });
@@ -403,7 +403,7 @@ YSDK.add(function () {
 
 YSDK.add(function () {
     YSDK.Switchable.autoRender = function (hook, container) {
-        hook = "." + (hook || "KS_Widget");
+        hook = "." + (hook || "YHD_Widget");
         if (!container) container = "";
         var ts = container + " " + hook;
         $(ts).each(function (i, elem) {
@@ -453,7 +453,7 @@ YSDK.add(function () {
 });
 
 YSDK.add(function () {
-    var CLS_PREFIX = "ks-switchable-", DOT = ".", PREV_BTN = "prevBtn", NEXT_BTN = "nextBtn", defaultConfig = {
+    var CLS_PREFIX = "yhd-switchable-", DOT = ".", PREV_BTN = "prevBtn", NEXT_BTN = "nextBtn", defaultConfig = {
         circular: true,
         prevBtnCls: CLS_PREFIX + "prev-btn",
         nextBtnCls: CLS_PREFIX + "next-btn",
