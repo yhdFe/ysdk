@@ -982,10 +982,11 @@ YSDK.add(function() {
             if (self.anim) $(self).stop(true);
             self.anim = $(self.content).animate(props, {
                 duration: cfg.duration,
-                easing: cfg.easing
-            }, function() {
-                self.anim = undefined;
-                callback();
+                easing: cfg.easing,
+                complete:function() {
+                    self.anim = undefined;
+                    callback();
+                }
             });
         }
     };
@@ -1263,18 +1264,19 @@ YSDK.add(function() {
             disableCls = cfg.disableBtnCls;
         $.each(["prev", "next"], function(i, d) {
             var btn = self[d + "Btn"] = $(DOT + cfg[d + "BtnCls"], self.container);
-            $(btn).bind("click", function(ev) {
+            btn.bind("click", function(ev) {
                 ev.preventDefault();
-                if (!$(btn).hasClass(disableCls)) self[d]();
+                if (!btn.hasClass(disableCls)) self[d]();
             });
         });
         if (!cfg.circular) {
             YSDK.event.on("switch", function(ev) {
                 var i = ev.currentIndex,
                     disableBtn = i === 0 ? self[PREV_BTN] : i === self.length - 1 ? self[NEXT_BTN] : undefined;
-                $(self[PREV_BTN], self[NEXT_BTN]).removeClass(disableCls);
+                $(self[PREV_BTN]).removeClass(disableCls);
+                $(self[NEXT_BTN]).removeClass(disableCls);
                 if (disableBtn) $(disableBtn).addClass(disableCls);
-            }, this);
+            }, self);
         }
         $(self.panels).bind("click focus", function() {
             YSDK.event.fire("itemSelected", {

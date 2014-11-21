@@ -1,0 +1,129 @@
+body,
+p,
+form,
+input,
+button,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
+}
+
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:after {
+    display: block;
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+}
+
+img {
+    border: 0 none;
+    vertical-align: top;
+}
+
+em {
+    font-style: normal;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+mark {
+    background: #ff0;
+}
+
+#header, #content, #footer {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col-main {
+    float: left;
+    width: 100%;
+    min-height: 1px;
+}
+
+.col-sub, .col-extra {
+    float: left;
+}
+
+.layout:after, .main-wrap:after, .col-sub:after, .col-extra:after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.layout, .main-wrap, .col-sub, .col-extra {
+    *zoom: 1;
+}
+
+.yhd-hidden {
+    display: none;
+}
+
+.yhd-invisible {
+    visibility: hidden;
+}
+
+.yhd-clear:after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.yhd-clear {
+    *zoom: 1;
+}
+
+.yhd-inline-block {
+    display: inline-block;
+    *display: inline;
+}

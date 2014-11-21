@@ -1,66 +1,4 @@
-/**
- * common CSS
- */
-.hidden{
-	display:none;
-}
-#header{
-	display:none;
-}
-#footer{
-	display:none;
-}
-#page{
-	top:20px !important;
-}
-body{
-		margin:0 0;
-	}
 
-.header{
-	height:30px;
-	background:#333333;
-	margin-bottom:20px;
-}
-.header h1{
-	color:#ffffff;
-	padding:4px 10px;
-}
-.fc-content{
-	margin:20px 50px;
-}
-h2.ti{
-	font-size:16px;
-	margin-bottom:20px;
-}
-h2.ti a{
-	font-size:12px;
-}
-h3.ti{
-	font-size:14px;
-	margin:60px 0 20px 0;
-	padding-left:20px;
-	list-style:decimal;
-	background:url(http://img04.taobaocdn.com/tps/i4/T1slB7XkXqXXXXXXXX-8-8.png) 0 8px no-repeat;
-	
-}
-h3 a{
-	margin-left:20px;
-}
-pre{
-	margin-bottom:20px;
-}
-.prettyprint{
-	font-size:13px;
-	border:dashed 1px #2F6FAB !important;
-	background:#FBFBE7;
-}
-a.J_ex{
-	color:#0BB0DB;
-}
-a.J_ex:hover{
-	text-decoration:none;
-}
 /**
  * tab1
  */
@@ -68,24 +6,26 @@ a.J_ex:hover{
 		list-style:none;
 	}
     .tab1 { position: relative; width: 750px; padding-top: 29px; }
-    .tab1 .yhd-switchable-nav { position: absolute; left: 20px; margin-top: -29px; z-index: 99; }
+    .tab1 .yhd-switchable-nav { position: absolute; left: 20px; margin-top: -29px; top: 31px; z-index: 99; }
     .tab1 .yhd-switchable-nav li {
         float: left;
         width: 130px;
         height: 27px;
-        line-height: 21px;
+        line-height: 27px;
         text-align: center;
-        background: url(http://img01.taobaocdn.com/tps/i1/T1XtV7XjhsXXXXXXXX-130-70.gif) no-repeat 0 6px;
-        margin-right: 3px;
-        padding-top: 8px;
-        cursor: pointer;
-    }
-    .tab1 .yhd-switchable-nav li.yhd-active { background-position: 0 -40px; cursor: default; }
+    
+        background: #E40011;
+        color: #fff;
+        margin-left: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+}
+    .tab1 .yhd-switchable-nav li.yhd-active { background: #fff; border: 1px solid #e40011; border-bottom: none; color: #e40011;}
     .tab1 .yhd-switchable-content {
         position: relative;
         height: 120px;
         padding: 20px;
-        border: 1px solid #AEC7E5;
+        border: 1px solid #E40011;
     }
 
 /**
@@ -110,8 +50,7 @@ a.J_ex:hover{
 	height:25px;
 }
 .pasale .bbp-nav li {
-    background: url("http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png") no-repeat scroll 0 -206px transparent;
-    border-color: #E3E3E3 #E3E3E3 -moz-use-text-color;
+    border-color: #E3E3E3 #E3E3E3;
     border-style: solid solid none;
     border-width: 1px 1px medium;
     display: block;
@@ -127,7 +66,6 @@ a.J_ex:hover{
     margin-left: 1px;
 }
 .pasale .bbp-nav li span {
-    background: url("http://co.youa.baidu.com/picture/r/mall/hp090617/images/new.gif") no-repeat scroll 0 0 transparent;
     display: block;
     height: 18px;
     overflow: hidden;
@@ -145,7 +83,6 @@ a.J_ex:hover{
 	text-decoration:none;
 }
 .pasale .bbp-nav li.selected {
-    background: url("http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png") no-repeat scroll 0 -167px transparent;
     border: medium none;
     height: 28px;
     line-height: 28px;
@@ -177,7 +114,6 @@ a.J_ex:hover{
     width: 123px;
 }
 .pasale .bbp-content li span, .pasale .bbp-content li em {
-    background: url("http://co.youa.baidu.com/picture/r/mall/hp090617/images/sale.png") no-repeat scroll 0 0 transparent;
     color: #FFF600;
     display: block;
     font-size: 12px;
@@ -218,7 +154,7 @@ a.J_ex:hover{
     padding: 3px 10px;
     cursor: pointer;
     border-right: 1px solid #ddd;
-    background: #f3f3f3;
+    background: #E40011;
     overflow: hidden;
     width: 18px;
 	height:260px;
@@ -228,6 +164,7 @@ a.J_ex:hover{
     float: left;
     width: 18px;
     margin-left: 0px;
+    color: #fff;
 }
 .accordion1 .yhd-switchable-panel {
     height: 260px;
@@ -247,7 +184,7 @@ a.J_ex:hover{
     margin-top: 2px;
     font-size: 0;
     vertical-align: middle;
-    background: url(http://img02.taobaocdn.com/tps/i2/T1GK07XklnXXXXXXXX-32-12.png) no-repeat 0 0;
+    background: url(../images/icon-trigger.png) no-repeat 0 0;
 }
 .accordion1 .yhd-active .yhd-icon {
     background-position: -20px 0;
@@ -275,7 +212,7 @@ a.J_ex:hover{
     padding: 3px 10px;
     cursor: pointer;
     border-bottom: 1px solid #ddd;
-    background: #f3f3f3;
+    background: #E40011;
     overflow: hidden;
     height: 18px;
 }
@@ -284,6 +221,7 @@ a.J_ex:hover{
     float: left;
     width: 100px;
     margin-left: 5px;
+    color: #fff;
 }
 
 .accordion2 .yhd-switchable-panel {
@@ -300,7 +238,7 @@ a.J_ex:hover{
     margin-top: 2px;
     font-size: 0;
     vertical-align: middle;
-    background: url(http://img02.taobaocdn.com/tps/i2/T1GK07XklnXXXXXXXX-32-12.png) no-repeat 0 0;
+    background: url(../images/icon-trigger.png) no-repeat 0 0;
 }
 
 .accordion2 .yhd-active .yhd-icon {
@@ -326,17 +264,12 @@ a.J_ex:hover{
  /**
   * carourse1
   */
- li{
-		list-style:none;
-	}
+
 	.content{
 		width:680px;
 		border:solid 1px 
 	}
-	
-	img{
-		border:none;
-	}
+
 	
 	.mall-slide .yhd-switchable-nav{
 		margin-top:140px;
@@ -370,34 +303,38 @@ a.J_ex:hover{
 	    border-top: 1px solid #D8D8D8;
 	    height: 200px;
 	    position: relative;
-	    width: 489px;
+	    width: 510px;
 	}
 	.mall-slide .mall-prev {
-	    background: url("http://a.tbcdn.cn/p/fp/2011a/assets/sprites.gif") no-repeat scroll 0 -109px transparent;
-	    display: block;
-	    height: 137px;
-	    left: 0;
-	    position: absolute;
-	    width: 25px;
+		background: url("../images/icon-arrows.png") 0 -34px no-repeat scroll transparent;
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 34px;
+
+		top: 50px;
+		height: 34px;
 	}
 	.mall-slide .mall-next {
-	    background: url("http://a.tbcdn.cn/p/fp/2011a/assets/sprites.gif") no-repeat scroll -25px -109px transparent;
+	    background: url("../images/icon-arrows.png") -34px -34px no-repeat scroll transparent;
 	    display: block;
-	    height: 137px;
 	    position: absolute;
 	    right: 0;
-	    width: 25px;
-	}
+	    width: 34px;
+	
+	    top: 50px;
+	    height: 34px;
+}
 	.mall-slide .mall-prev:hover {
-	    background-position: 0 -246px;
+	    background-position: 0 0;
 	}
 	.mall-slide .mall-next:hover {
-	    background-position: -25px -246px;
+	    background-position: -34px 0;
 	}
 	.mall-slide .mall-content {
 	    background: -moz-linear-gradient(center top , #ECECEC, #FFFFFF) repeat scroll 0 0 transparent;
 	    height: 200px;
-	    left: 25px;
+	    left: 35px;
 	    overflow: hidden;
 	    position: absolute;
 	    width: 439px;
@@ -459,9 +396,7 @@ a.J_ex:hover{
 	    overflow: hidden;
 	    width: 490px;
 	}
-	.main-promo .loading-s .tb-slide-list li {
-	    background: url("http://img02.taobaocdn.com/tps/i2/T16WJqXaXeXXXXXXXX-32-32.gif") no-repeat scroll 50% 50% transparent;
-	}
+
 	.tb-slide-triggers {
 	    bottom: 5px;
 	    height: 18px;
@@ -526,7 +461,7 @@ a.J_ex:hover{
         cursor: pointer;
     }
     .scrollable .yhd-switchable-nav li.yhd-active {
-        color: #C8282B;
+        color: #d22929;
     }
 
     .scroller {
@@ -534,7 +469,6 @@ a.J_ex:hover{
         width: 680px;
         height: 120px;
         border: 1px solid #ccc;
-        background-color: #F9F9F9;
         margin: auto;
         overflow: hidden;
     }
@@ -546,7 +480,7 @@ a.J_ex:hover{
         margin: 20px 15px;
         background-color: #fff;
         border: 1px solid #ccc;
-        display: inline !important; /* fix ie6 双边�? bug */
+        display: inline !important;
     }
 	/**
 	 * slide1
@@ -558,21 +492,22 @@ a.J_ex:hover{
         width: 16px;
         height: 16px;
         line-height: 16px;
-        margin-left: 3px;
-        background-color: #FCF2CF;
-        border: 1px solid #F47500;
+        margin-left: 10px;
+        background-color: #666;
         color: #D94B01;
         text-align: center;
         cursor: pointer;
-    }
+    
+        color: #fff;
+        border-radius: 100%;
+}
     .slide1 .yhd-switchable-nav li.yhd-active {
         width: 18px;
         height: 18px;
         line-height: 18px;
         margin-top: -1px;
         color: #FFF;
-        background-color: #FFB442;
-        font-weight: bold;
+        background-color: #e60021;
     }
     .slide1 .yhd-switchable-content li { height: 150px; width: 470px; overflow: hidden; }
     /* for countdown plugin */
