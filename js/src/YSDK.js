@@ -1,4 +1,4 @@
-(function () {
+(function() {
     var YSDK = {
         Env: {
             mods: {}, // 所有模块列表
@@ -13,10 +13,10 @@
 
      };*/
 
-    YSDK.substitute = function (str, o, regexp) {
+    YSDK.substitute = function(str, o, regexp) {
         //if(!S.isString(str) || !$.isPlainObject(o)) return str;
 
-        return str.replace(regexp || /\\?\{([^{}]+)\}/g, function (match, name) {
+        return str.replace(regexp || /\\?\{([^{}]+)\}/g, function(match, name) {
             if (match.charAt(0) === '\\') return match.slice(1);
             return (o[name] !== undefined) ? o[name] : '';
         });
@@ -24,7 +24,7 @@
 
     YSDK.mix = mix;
 
-    YSDK.merge = function () {
+    YSDK.merge = function() {
         var o = {},
             i, l = arguments.length;
         for (i = 0; i < l; ++i) {
@@ -33,21 +33,20 @@
         return o;
     }
 
-    YSDK.augment = function (/*r, s1, s2, ..., ov, wl*/) {
+    YSDK.augment = function( /*r, s1, s2, ..., ov, wl*/ ) {
         var args = arguments,
             len = args.length - 2,
             r = args[0],
             ov = args[len],
             wl = args[len + 1],
             i = 1;
-        console.log(args);
         if (!$.isArray(wl)) {
             ov = wl;
             wl = undefined;
             len++;
         }
 
-        if (!typeof (ov) == 'boolean') {
+        if (!typeof(ov) == 'boolean') {
             ov = undefined;
             len++;
         }
@@ -59,59 +58,58 @@
         return r;
     }
 
-    YSDK.add = function (fn) {
+    YSDK.add = function(fn) {
         fn(this);
         return this;
     }
 
     YSDK.event = {
-        on:function(name,fn,scope){
+        on: function(name, fn, scope) {
             scope.events = scope.events || {};
-                //if(!me.events[name]){
-                //    me.events[name] = [];
-                //    me.events[name].push({
-                //        fn:fn,
-                //        scope:scope
-                //    });
-                //}else{
-                //    me.events[name].push({
-                //        fn:fn,
-                //        scope:scope
-                //    });
-                //}
+            //if(!me.events[name]){
+            //    me.events[name] = [];
+            //    me.events[name].push({
+            //        fn:fn,
+            //        scope:scope
+            //    });
+            //}else{
+            //    me.events[name].push({
+            //        fn:fn,
+            //        scope:scope
+            //    });
+            //}
             scope.events[name] = fn;
 
         },
 
-        un: function (name,scope) {
+        un: function(name, scope) {
             if (scope.events && scope.events[name]) {
                 scope.events[name] = null;
                 delete scope.events[name];
             }
         },
 
-        fire : function(name, data , scope) {
+        fire: function(name, data, scope) {
             scope.events = scope.events || {};
             var fnAr = scope.events[name];
-            if(fnAr) {
-                    fnAr(data);
+            if (fnAr) {
+                fnAr(data);
             }
         }
     }
 
-    YSDK.extend = function (r, s, px, sx) {
+    YSDK.extend = function(r, s, px, sx) {
         if (!s || !r) return r;
         var create = Object.create ?
-                function (proto, c) {
+                function(proto, c) {
                     return Object.create(proto, {
                         constructor: {
                             value: c
                         }
                     });
                 } :
-                function (proto, c) {
-                    function F() {
-                    }
+                function(proto, c) {
+                    function F() {}
 
                     F.prototype = proto;
 

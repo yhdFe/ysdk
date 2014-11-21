@@ -24,7 +24,6 @@ YSDK.add(function() {
         self.container = $(container);
         self.config = config;
         self.activeIndex = config.activeIndex;
-        console.log(self);
         self._init();
     }
 
@@ -296,12 +295,13 @@ YSDK.add(function() {
                 opacity: 0
             }, {
                 duration: cfg.duration,
-                easing: cfg.easing
-            }, function() {
-                self.anim = undefined;
-                $(toEl).css(Z_INDEX, 9);
-                $(fromEl).css(Z_INDEX, 1);
-                callback();
+                easing: cfg.easing,
+                complete: function() {
+                    self.anim = undefined;
+                    $(toEl).css(Z_INDEX, 9);
+                    $(fromEl).css(Z_INDEX, 1);
+                    callback();
+                }
             });
         },
         scroll: function(fromEls, toEls, callback, index) {
@@ -413,13 +413,14 @@ YSDK.add(function() {
         if (self.anim) $(this).stop();
         self.anim = $(self.content).animate(props, {
             duration: cfg.duration,
-            easing: cfg.easing
-        }, function() {
-            if (isCritical) {
-                resetPosition.call(self, self.panels, index, isBackward, prop, viewDiff);
+            easing: cfg.easing,
+            complete: function() {
+                if (isCritical) {
+                    resetPosition.call(self, self.panels, index, isBackward, prop, viewDiff);
+                }
+                self.anim = undefined;
+                callback();
             }
-            self.anim = undefined;
-            callback();
         });
     }
 

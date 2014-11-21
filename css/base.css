@@ -12,9 +12,11 @@ li,
 h1,
 h2,
 h3,
-h4 {
+h4
+{
     margin: 0;
     padding: 0;
+
     list-style: none;
 }
 
@@ -22,108 +24,165 @@ body,
 button,
 input,
 select,
-textarea {
+textarea
+{
     font: 12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
 }
 
 input,
 select,
-textarea {
+textarea
+{
     font-size: 100%;
 }
 
-a {
+a
+{
     text-decoration: none;
 }
 
-a:hover {
+a:hover
+{
     text-decoration: none;
 }
 
-.clearfix {
+.clearfix
+{
     *zoom: 1;
 }
 
-.clearfix:after {
-    display: block;
-    content: ".";
-    height: 0;
-    visibility: hidden;
-    clear: both;
+.clearfix:after
+{
     font-size: 0;
     line-height: 0;
+
+    display: block;
+    visibility: hidden;
+    clear: both;
+
+    height: 0;
+
+    content: '.';
 }
 
-img {
-    border: 0 none;
+img
+{
     vertical-align: top;
+
+    border: 0 none;
 }
 
-em {
+em
+{
     font-style: normal;
 }
 
-button::-moz-focus-inner {
+button::-moz-focus-inner
+{
     padding: 0;
+
     border: none;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video
+{
     display: block;
+
     margin: 0;
     padding: 0;
 }
 
-mark {
+mark
+{
     background: #ff0;
 }
 
-#header, #content, #footer {
-    margin-left: auto;
+#header,
+#content,
+#footer
+{
     margin-right: auto;
+    margin-left: auto;
 }
 
-.col-main {
+.col-main
+{
     float: left;
+
     width: 100%;
     min-height: 1px;
 }
 
-.col-sub, .col-extra {
+.col-sub,
+.col-extra
+{
     float: left;
 }
 
-.layout:after, .main-wrap:after, .col-sub:after, .col-extra:after {
-    content: '.';
+.layout:after,
+.main-wrap:after,
+.col-sub:after,
+.col-extra:after
+{
     display: block;
-    height: 0;
     clear: both;
+
+    height: 0;
+
+    content: '.';
 }
 
-.layout, .main-wrap, .col-sub, .col-extra {
+.layout,
+.main-wrap,
+.col-sub,
+.col-extra
+{
     *zoom: 1;
 }
 
-.yhd-hidden {
+.yhd-hidden
+{
     display: none;
 }
 
-.yhd-invisible {
+.yhd-invisible
+{
     visibility: hidden;
 }
 
-.yhd-clear:after {
-    content: '.';
+.yhd-clear:after
+{
     display: block;
-    height: 0;
     clear: both;
+
+    height: 0;
+
+    content: '.';
 }
 
-.yhd-clear {
+.yhd-clear
+{
     *zoom: 1;
 }
 
-.yhd-inline-block {
+.yhd-inline-block
+{
     display: inline-block;
+
     *display: inline;
 }
