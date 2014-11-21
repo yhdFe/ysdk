@@ -638,4 +638,65 @@ a.J_ex:hover{
 	 */
 	.scroll-news { height: 20px; overflow: hidden; }
     .scroll-news a { color: #FF7E00; }
+
+.tp04 {
+	background: none repeat scroll 0 0 transparent;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+	width: 950px;
+}
+.tp04 .yslider-stick {
+	background: #333333;
+	bottom: 0;
+	height: 39px;
+	left: 0;
+	line-height: 39px;
+	position: absolute;
+	width: 960px;
+	z-index: 99;
+}
+.tp04 .yslider-stick li {
+	float: left;
+	overflow: hidden;
+	width: 190px;
+	cursor:pointer;
+}
+.tp04 .yslider-stick li a {
+	color: #FFFFFF;
+	display: block;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	text-indent: 0;
+	font-weight:300;
+}
+.tp04 .yslider-stick li:hover {
+	background: none repeat scroll 0 0 #2E2E2E;
+	color: #FFFFFF;
+}
+.tp04 .yslider-stick li.yhd-active {
+	background: none repeat scroll 0 0 #DF0000;
+}
+.tp04 .yslider-stick li.yhd-active a {
+	background: none repeat scroll 0 0 #DF0000;
+	color: #FFFFFF;
+	display: block;
+	font-weight:600;
+}
+.tp04 .yslider-stage {
+	height: 310px;
+	width: 950px;
+}
+.tp04 .yhd-switchable-content {
+	background: none repeat scroll 0 0 #FFFFFF;
+	height: 396px;
+	padding: 0;
+	width: 946px;
+}
+.tp04 .yhd-switchable-content:hover {
+	background: none repeat scroll 0 0 #FFFFFF;
+	height: 400px;
+	width: 950px;
+}
 		

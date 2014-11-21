@@ -51,7 +51,7 @@ YSDK.add(function () {
                     plugin.init(self);
                 }
             });
-            $(self).trigger(EVENT_INIT);
+            YSDK.event.fire(EVENT_INIT,'',self);
         },
         _parseMarkup: function () {
             var self = this, container = self.container, cfg = self.config, nav, content, triggers = [], panels = [], i, n, m;
@@ -144,9 +144,9 @@ YSDK.add(function () {
         switchTo: function (index, direction) {
             var self = this, cfg = self.config, triggers = self.triggers, panels = self.panels, activeIndex = self.activeIndex, steps = cfg.steps, fromIndex = activeIndex * steps, toIndex = index * steps;
             if (!self._triggerIsValid(index)) return self;
-            if ($(self).trigger(EVENT_BEFORE_SWITCH, {
+            if (YSDK.event.fire(EVENT_BEFORE_SWITCH, {
                     toIndex: index
-                }) === false) return self;
+                },self) === false) return self;
             if (cfg.hasTriggers) {
                 self._switchTrigger(activeIndex > -1 ? triggers[activeIndex] : null, triggers[index]);
             }
@@ -168,9 +168,9 @@ YSDK.add(function () {
             this._fireOnSwitch(index);
         },
         _fireOnSwitch: function (index) {
-            $(this).trigger(EVENT_SWITCH, {
+            YSDK.event.fire(EVENT_SWITCH, {
                 currentIndex: index
-            });
+            },this);
         },
         prev: function () {
             var self = this, activeIndex = self.activeIndex;
@@ -226,7 +226,7 @@ YSDK.add(function () {
     YSDK.mix(Switchable.Config, {
         effect: NONE,
         duration: 500,
-        easing: "easeNone",
+        easing: "swing",
         nativeAnim: true
     });
     Switchable.Effects = {
@@ -281,7 +281,7 @@ YSDK.add(function () {
                     case SCROLLX:
                     case SCROLLY:
                         $(content).css(POSITION, ABSOLUTE);
-                        $(content.parentNode).css(POSITION, RELATIVE);
+                        $(content).parent().css(POSITION, RELATIVE);
                         if (effect === SCROLLX) {
                             $(panels).css(FLOAT, LEFT);
                             $(content).width(host.viewSize[0] * (len / steps));
@@ -378,12 +378,12 @@ YSDK.add(function () {
         init: function (host) {
             var DataLazyload = YSDK.DataLazyload, cfg = host.config, type = cfg.lazyDataType, flag = FLAGS[type];
             if (!DataLazyload || !type || !flag) return;
-            $(host).bind(EVENT_BEFORE_SWITCH, loadLazyData);
+            YSDK.event.on(EVENT_BEFORE_SWITCH, loadLazyData, host);
             function loadLazyData(ev) {
                 var steps = cfg.steps, from = ev.toIndex * steps, to = from + steps;
                 DataLazyload.loadCustomLazyData(host.panels.slice(from, to), type);
                 if (isAllDone()) {
-                    $(host).unbind(EVENT_BEFORE_SWITCH, loadLazyData);
+                    YSDK.event.un(EVENT_BEFORE_SWITCH, loadLazyData,host);
                 }
             }
 
@@ -465,9 +465,9 @@ YSDK.add(function () {
         if (!(self instanceof Carousel)) {
             return new Carousel(container, config);
         }
-        $(self).bind("init", function () {
+        YSDK.event.on("init", function () {
             init_carousel(self);
-        });
+        }, self);
         Carousel.superclass.constructor.call(self, container, YSDK.merge(defaultConfig, config));
     }
 
@@ -483,16 +483,16 @@ YSDK.add(function () {
             });
         });
         if (!cfg.circular) {
-            $(this).bind("switch", function (ev) {
+            YSDK.event.on("switch", function (ev) {
                 var i = ev.currentIndex, disableBtn = i === 0 ? self[PREV_BTN] : i === self.length - 1 ? self[NEXT_BTN] : undefined;
                 $(self[PREV_BTN], self[NEXT_BTN]).removeClass(disableCls);
                 if (disableBtn) $(disableBtn).addClass(disableCls);
-            });
+            }, this);
         }
         $(self.panels).bind("click focus", function () {
-            $(self).trigger("itemSelected", {
+            YSDK.event.fire("itemSelected", {
                 item: this
-            });
+            },self);
         });
     }
 });

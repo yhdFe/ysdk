@@ -258,7 +258,7 @@ YSDK.add(function () {
                 left: x,
                 top: y
             };
-            $(self.container).offset(offset);
+            $(self.container).css({left:offset.left,top:offset.top});
             if (self.shim) self.shim.setOffset(offset);
         },
         align: function (node, points, offset) {

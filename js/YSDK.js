@@ -64,6 +64,41 @@
         return this;
     }
 
+    YSDK.event = {
+        on:function(name,fn,scope){
+            scope.events = scope.events || {};
+                //if(!me.events[name]){
+                //    me.events[name] = [];
+                //    me.events[name].push({
+                //        fn:fn,
+                //        scope:scope
+                //    });
+                //}else{
+                //    me.events[name].push({
+                //        fn:fn,
+                //        scope:scope
+                //    });
+                //}
+            scope.events[name] = fn;
+
+        },
+
+        un: function (name,scope) {
+            if (scope.events && scope.events[name]) {
+                scope.events[name] = null;
+                delete scope.events[name];
+            }
+        },
+
+        fire : function(name, data , scope) {
+            scope.events = scope.events || {};
+            var fnAr = scope.events[name];
+            if(fnAr) {
+                    fnAr(data);
+            }
+        }
+    }
+
     YSDK.extend = function (r, s, px, sx) {
         if (!s || !r) return r;
         var create = Object.create ?
