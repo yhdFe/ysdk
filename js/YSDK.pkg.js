@@ -1,4 +1,4 @@
-/* build on 2014-11-21 */ 
+/* build on 2014-11-24 */ 
 (function() {
     var YSDK = {
         Env: {
@@ -469,7 +469,7 @@ YSDK.add(function() {
             else node = $(node);
             points = points || alignConfig.points;
             offset = offset === undefined ? alignConfig.offset : offset;
-            xy = $(self.container).offset();
+            xy = $(self.container).position();
             p1 = self._getAlignOffset(node, points[0]);
             p2 = self._getAlignOffset(self.container, points[1]);
             diff = [p2.left - p1.left, p2.top - p1.top];
